@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal Guru - Kelola Catatan Mengajar dengan Mudah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="landing-nav">
+        <div class="landing-logo">
+            <i class="fas fa-chalkboard-teacher"></i> Jurnal Guru
+        </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Fitur</a>
+            <a href="login.html" class="landing-btn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="landing-hero">
+        <div class="hero-content">
+            <h1>Kelola Catatan Mengajar dengan Mudah</h1>
+            <p>Aplikasi Jurnal Guru membantu Anda mengelola catatan pembelajaran, kehadiran siswa, dan nilai secara efisien. Rancang khusus untuk guru Indonesia.</p>
+            <a href="login.html" class="cta-btn">
+                <i class="fas fa-sign-in-alt"></i> Mulai Sekarang
+            </a>
+        </div>
+        <div class="hero-image">
+            <img src="https://img.freepik.com/free-vector/teacher-concept-illustration_114360-2166.jpg" alt="Ilustrasi Guru Mengajar">
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <h2>Fitur Utama</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Catatan Jurnal</h3>
+                <p>Catat kegiatan pembelajaran dengan mudah, termasuk materi, metode, dan refleksi pengajaran.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>Presensi Siswa</h3>
+                <p>Kelola kehadiran siswa dengan cepat dan dapatkan laporan lengkap tentang tingkat kehadiran.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Penilaian</h3>
+                <p>Catat dan analisis nilai siswa untuk memantau perkembangan akademik secara efektif.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h3>Laporan Cetak</h3>
+                <p>Cetak laporan jurnal, presensi, dan nilai siswa untuk keperluan administrasi sekolah.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Data Terpusat</h3>
+                <p>Semua data tersimpan secara terpusat dan aman, dapat diakses kapan saja, di mana saja.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Responsif</h3>
+                <p>Dapat digunakan dengan baik pada komputer, tablet, maupun smartphone.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Siap Mempermudah Tugas Administrasi Anda?</h2>
+        <p>Bergabunglah sekarang dan rasakan kemudahan mengelola jurnal pembelajaran, presensi, dan nilai siswa dengan aplikasi yang dirancang khusus untuk guru.</p>
+        <a href="login.html" class="cta-btn">
+            <i class="fas fa-sign-in-alt"></i> Masuk ke Aplikasi
+        </a>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Jurnal Guru - Aplikasi Pengelolaan Jurnal Pembelajaran</p>
+        <p>Dibuat untuk memudahkan guru dalam mengelola administrasi pembelajaran</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cek jika user sudah login, redirect ke dashboard
+            const guruId = localStorage.getItem('guruId');
+            if (guruId) {
+                window.location.href = 'dashboard.html';
+                return;
+            }
+            
+            // Fungsi untuk animasi scroll
+            const animateOnScroll = () => {
+                const cards = document.querySelectorAll('.feature-card');
+                
+                cards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight * 0.85) {
+                        card.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Jalankan animasi saat halaman dimuat
+            setTimeout(animateOnScroll, 100);
+            
+            // Jalankan animasi saat scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Smooth scroll untuk tombol navigasi
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
